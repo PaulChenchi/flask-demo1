@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .price {
+            text-align: center;
+            display: inline-block;
+            width: 200px;
+            padding: 6px;
+            color: white;
+            border-radius: 6px;
+            background-color: blueviolet;
+        }
+
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>目前書籍內容</h1>
+    {{today}}
+    <ul>
+        {% for id in books %}
+        <div class="book">
+            <li>
+                <h2>{{id}} - {{books[id]["name"]}}</h2>
+                <p class="price">價格:<b>{{books[id]["price"]}}</b></p>
+                <p>
+                    <img src="{{books[id]['image_url']}}" alt="">
+                </p>
+            </li>
+        </div>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

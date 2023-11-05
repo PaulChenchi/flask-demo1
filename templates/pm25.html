@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2.5資料</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div class="title">PM2.5即時資訊</div>
+    <p class="update-time">更新時間:{{now}}<br><small>{{message}}</small></p>
+
+    最高:{{highest[0]}} <span class="highest">{{highest[1]}}</span>
+    最低:{{lowest[0]}} <span class="lowest">{{lowest[1]}}</span>
+
+    <form action="" method="POST">
+        <input type="submit" name="update" value="更新">
+        <input type="submit" name="sort" value="排序">
+    </form>
+    <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in columns %}
+                <th>{{column}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for value in values %}
+            <tr>
+                {% for row in value %}
+                <td>{{row}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        setTimeout(() => {
+            location.reload();
+        }, 3600000);
+    </script>
+</body>
+
+</html>

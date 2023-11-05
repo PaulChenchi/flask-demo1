@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2.5數據圖</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+</head>
+
+<body>
+
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="six-county" style="width: 600px;height:400px;"></div>
+    <select name="selectCounty" id="selectCounty">
+        {% for county in countys %}
+
+        <option value="{{county}}">{{county}}</option>
+        {% endfor %}
+    </select>
+    <!-- <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="six-county" style="width: 600px;height:400px;"></div> -->
+    <div id="county" style="width: 600px;height:400px;"></div>
+    <!-- 使用ajax 進行資料取得後繪製 -->
+    <script src="../static/css/js/pm25-chart.js">
+    </script>
+</body>
+
+</html>
